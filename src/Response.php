@@ -38,6 +38,11 @@ class Response implements ArrayAccess
         return $this->raw;
     }
 
+    public function getRaw(): array
+    {
+        return $this->raw;
+    }
+
     public function offsetExists(mixed $offset): bool
     {
         return isset($this->raw[$offset]);
