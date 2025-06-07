@@ -70,6 +70,13 @@ class CollectionsTest extends AbstractIntegration
 
         $response = $collections->setCollectionName('sample-collection-that-not-exists')->exists();
         $this->assertEquals(false, $response['result']['exists']);
+
+        $collections->setCollectionName('sample-collection');
+        $exists = $collections->existsResult();
+        $this->assertTrue($exists);
+
+        $exists = $collections->setCollectionName('sample-collection-that-not-exists')->existsResult();
+        $this->assertFalse($exists);
     }
 
     public function testCollectionsCluster(): void

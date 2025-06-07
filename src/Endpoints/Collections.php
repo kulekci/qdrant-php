@@ -77,6 +77,18 @@ class Collections extends AbstractEndpoint
             $this->createRequest('GET', '/collections/' . $this->getCollectionName(). '/exists')
         );
     }
+
+    /**
+     * # Collection exists result
+     * Returns whether the specified collection exists as a boolean value.
+     *
+     * @throws InvalidArgumentException
+     */
+    public function existsResult(): bool
+    {
+        $response = $this->exists();
+        return $response['result']['exists'];
+    }
     
     /**
      * # Delete collection
